@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carnival of Screams · Costume Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f4e9d2; --bg2:#fbf4e4; --ink:#1a1412; --ink2:#3a2e2a; --muted:#6a5b55;
+  --red:#b3261e; --red2:#7d1a13; --gold:#c9952a; --gold2:#e9b949; --line:#1a1412;
+  --card:#fffaf0; --shadow:0 2px 0 #1a1412;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15100f; --bg2:#1f1816; --ink:#f4e9d2; --ink2:#e2d4b8; --muted:#b5a48d;
+    --red:#e04a3f; --red2:#ff7466; --gold:#e9b949; --gold2:#ffd36b; --line:#f4e9d2;
+    --card:#241c19; --shadow:0 2px 0 #000;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15100f; --bg2:#1f1816; --ink:#f4e9d2; --ink2:#e2d4b8; --muted:#b5a48d;
+  --red:#e04a3f; --red2:#ff7466; --gold:#e9b949; --gold2:#ffd36b; --line:#f4e9d2;
+  --card:#241c19; --shadow:0 2px 0 #000;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Alegreya Sans','Gill Sans','Trebuchet MS',sans-serif;font-size:17px;line-height:1.4}
+.stripe{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 28px,var(--bg) 28px 56px);border-bottom:3px solid var(--line)}
+header{padding:18px 20px 10px;max-width:1100px;margin:0 auto}
+.kicker{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+h1{font-family:'Rye',serif;font-size:clamp(30px,6vw,52px);margin:2px 0 0;line-height:1;text-transform:uppercase}
+.sub{margin:6px 0 0;font-style:italic;color:var(--ink2)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 40px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 0 6px;scrollbar-width:none;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:2px solid var(--line);background:var(--bg2);color:var(--ink);padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;min-height:44px;display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.tab small{font-weight:400;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab[aria-selected="true"] small{color:var(--gold2)}
+.panel{border:2px solid var(--line);background:var(--bg2);padding:14px 16px;margin:12px 0}
+.panel h2{font-family:'Rye',serif;font-size:20px;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row>*{flex:1 1 180px}
+label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+input,select,textarea{font:inherit;font-size:16px;padding:9px 10px;border:2px solid var(--line);background:var(--card);color:var(--ink);min-height:44px;width:100%}
+textarea{min-height:44px;resize:vertical}
+.btn{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--red);color:#fff;padding:10px 16px;cursor:pointer;min-height:44px;box-shadow:var(--shadow)}
+.btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+.btn.ghost{background:var(--bg2);color:var(--ink)}
+.btn.small{padding:6px 10px;min-height:38px;font-size:14px}
+.status{font-size:14px;color:var(--muted);margin-top:8px;min-height:1.2em}
+.preview{display:none;margin-top:10px;max-width:220px;border:2px solid var(--line)}
+.preview img{display:block;width:100%;height:auto}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:14px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--card);padding:4px 10px;font-size:14px}
+.chip b{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{border:2px solid var(--line);background:var(--card);display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.card .ph{position:relative;aspect-ratio:1;background:var(--bg2);overflow:hidden;cursor:pointer;border:0;padding:0;width:100%}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .ph .rank{position:absolute;top:6px;left:6px;background:var(--gold2);color:#1a1412;font-family:'Rye',serif;padding:3px 8px;font-size:14px;border:2px solid #1a1412}
+.card .meta{padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+.card .name{font-weight:700;font-size:16px;line-height:1.2}
+.card .site{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.card .cap{font-size:14px;color:var(--ink2);font-style:italic}
+.card .acts{display:flex;gap:6px;align-items:center;padding:0 10px 10px}
+.vote{flex:1 1 auto;font:inherit;font-weight:700;border:2px solid var(--line);background:var(--bg2);color:var(--ink);padding:8px;min-height:44px;cursor:pointer}
+.vote.mine{background:var(--red);color:#fff}
+.vote:disabled{opacity:.6;cursor:not-allowed}
+.del{font:inherit;border:2px solid var(--line);background:var(--card);color:var(--red);font-weight:700;padding:8px 10px;min-height:44px;cursor:pointer}
+.empty{text-align:center;padding:40px 10px;color:var(--muted);font-style:italic}
+.admin{border:2px dashed var(--red);background:var(--bg2);padding:12px 16px;margin:12px 0;display:none}
+.admin.on{display:block}
+.admin h2{font-family:'Rye',serif;font-size:18px;margin:0 0 6px;color:var(--red);text-transform:uppercase;letter-spacing:1px}
+.admin .row{align-items:center}
+.admin .row>*{flex:0 1 auto}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border:2px solid var(--gold2);display:none;max-width:90vw;z-index:20}
+.lb{position:fixed;inset:0;background:rgba(10,6,5,.92);display:none;align-items:center;justify-content:center;z-index:30;padding:16px}
+.lb.on{display:flex}
+.lb .box{background:var(--card);border:3px solid var(--gold2);max-width:min(900px,96vw);max-height:92vh;display:flex;flex-direction:column;overflow:hidden}
+.lb img{max-width:100%;max-height:70vh;object-fit:contain;display:block;background:#000}
+.lb .info{padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.lb .close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;font:inherit;font-size:16px;font-weight:700;background:var(--gold2);color:#1a1412;border:2px solid #1a1412;padding:8px 12px;min-height:44px;cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 30px}
+.spin{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--red);border-radius:50%;animation:s 1s linear infinite;display:inline-block;vertical-align:middle}
+@keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<header>
+  <div class="kicker">Client Service Appreciation Week · Oct 5–9</div>
+  <h1>Carnival of Screams</h1>
+  <p class="sub">Costume gallery. Post your photo, vote for your favorites. One vote per person, per day.</p>
+</header>
+<div class="wrap">
+  <div class="tabs" role="tablist" id="tabs"></div>
+
+  <section class="panel" id="uploadPanel">
+    <h2 id="uploadTitle">Post your photo</h2>
+    <div class="row">
+      <label>Your name <input id="fName" maxlength="60" placeholder="First and last" autocomplete="name"></label>
+      <label>Site / team
+        <select id="fSite">
+          <option>Americor</option>
+          <option>Americor DR</option>
+          <option>Buwelo Colombia</option>
+          <option>Buwelo PH</option>
+          <option>Leadership</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <label style="flex:2 1 260px">Caption (optional) <input id="fCap" maxlength="120" placeholder="Who or what are you?"></label>
+      <label>Photo <input id="fFile" type="file" accept="image/*"></label>
+    </div>
+    <div class="preview" id="preview"><img id="previewImg" alt="Preview of the photo you picked"></div>
+    <div class="row" style="margin-top:12px;align-items:center">
+      <button class="btn" id="btnUpload" style="flex:0 1 auto">Post to the gallery</button>
+      <div class="status" id="upStatus" style="flex:1 1 200px;margin:0"></div>
+    </div>
+  </section>
+
+  <section class="admin" id="admin">
+    <h2>Backend controls (admin)</h2>
+    <div class="row">
+      <label style="flex-direction:row;align-items:center;gap:8px;text-transform:none;font-size:15px">
+        <input type="checkbox" id="lockDay" style="width:22px;height:22px;min-height:0"> Lock voting for this day
+      </label>
+      <label style="flex-direction:row;align-items:center;gap:8px;text-transform:none;font-size:15px">
+        <input type="checkbox" id="lockUpload" style="width:22px;height:22px;min-height:0"> Close uploads for this day
+      </label>
+      <span style="font-size:14px;color:var(--muted)">A red Remove button appears on every photo while you are signed in. Removing is permanent.</span>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="chips" id="leaders"></div>
+    <div class="chips" id="sites"></div>
+  </div>
+  <div id="notice" class="status"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">No photos yet for this day. Be the first one on the midway.</div>
+</div>
+<footer>Photos are visible to everyone with this link. Keep it work-appropriate; leadership can remove anything. <a href="#" id="adminLink" style="color:var(--red)">Admin sign-in</a></footer>
+<div class="lb" id="adminDlg" role="dialog" aria-modal="true">
+  <div class="box" style="padding:18px;max-width:420px;width:100%">
+    <h2 style="font-family:'Rye',serif;margin:0 0 10px;text-transform:uppercase;font-size:20px">Admin sign-in</h2>
+    <label>Email <input id="aEmail" type="email" autocomplete="username"></label>
+    <label style="margin-top:8px">Password <input id="aPass" type="password" autocomplete="current-password"></label>
+    <div class="status" id="aStatus"></div>
+    <div class="row" style="margin-top:10px"><button class="btn" id="aGo">Sign in</button><button class="btn ghost" id="aCancel">Cancel</button><button class="btn ghost" id="aOut" style="display:none">Sign out</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="lb" id="lb" aria-modal="true" role="dialog">
+  <button class="close" id="lbClose" aria-label="Close">Close</button>
+  <div class="box">
+    <img id="lbImg" alt="">
+    <div class="info">
+      <div><div class="name" id="lbName" style="font-weight:700;font-size:18px"></div><div class="site" id="lbSite" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)"></div><div class="cap" id="lbCap" style="font-style:italic;color:var(--ink2)"></div></div>
+      <button class="vote" id="lbVote" style="flex:0 0 auto;min-width:140px"></button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+// =====================================================================
+//  SETUP: paste your Firebase web app config here (Firebase console >
+//  Project settings > Your apps > Web app > SDK setup and configuration)
+// =====================================================================
+const firebaseConfig = {
+  apiKey: "AIzaSyCmgCjG85EYxktlMjnwrDBtq-vjeIVawfY",
+  authDomain: "carnival-of-screams-531ce.firebaseapp.com",
+  projectId: "carnival-of-screams-531ce",
+  appId: "1:661234346389:web:e47bcfb77214a7a4cbae9c"
+};
+// =====================================================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, collection, doc, setDoc, getDoc, deleteDoc, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const DAYS = [
+  {k:'mon', label:'Monday',    theme:'Step Right Up',            date:'2026-10-05'},
+  {k:'tue', label:'Tuesday',   theme:'Fun House',                date:'2026-10-06'},
+  {k:'wed', label:'Wednesday', theme:'Wicked: Clowns vs Ghosts', date:'2026-10-07'},
+  {k:'thu', label:'Thursday',  theme:'Carnival After Dark',      date:'2026-10-08'},
+  {k:'fri', label:'Friday',    theme:'Walking Dead',             date:'2026-10-09'},
+];
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s);
+
+let db = null, uid = null, isAdmin = false;
+let day = pickDefaultDay();
+let photos = [], votes = {}, myVoteDoc = null, settings = {locked:{}, closed:{}};
+let unsubPhotos = null;
+const fullCache = new Map(), pending = new Map();
+
+function pickDefaultDay(){
+  const t = new Date(); const iso = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+  const hit = DAYS.find(x => x.date === iso); if (hit) return hit.k;
+  try { const s = localStorage.getItem('cos-day'); if (s && DAYS.some(x=>x.k===s)) return s; } catch(e){}
+  return 'mon';
+}
+function toast(msg, ms){ const t=$('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toast._t); toast._t=setTimeout(()=>t.style.display='none', ms||3200); }
+
+function renderTabs(){
+  const el = $('tabs'); el.innerHTML='';
+  DAYS.forEach(d => {
+    const b = document.createElement('button'); b.className='tab'; b.setAttribute('role','tab'); b.setAttribute('aria-selected', String(d.k===day));
+    const s = document.createElement('small'); s.textContent = d.label; b.appendChild(s); b.appendChild(document.createTextNode(d.theme));
+    b.addEventListener('click', ()=>{ if (d.k!==day){ day=d.k; try{localStorage.setItem('cos-day',day);}catch(e){} renderTabs(); subscribeDay(); } });
+    el.appendChild(b);
+  });
+  $('uploadTitle').textContent = 'Post your ' + DAYS.find(x=>x.k===day).label + ' photo';
+}
+
+// ---- image resize: thumb (grid) + full (lightbox) ----
+function loadImg(file){ return new Promise((res,rej)=>{ const img=new Image(); const url=URL.createObjectURL(file); img.onload=()=>{URL.revokeObjectURL(url);res(img)}; img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('That file could not be read as an image.'))}; img.src=url; }); }
+function shrink(img, max, q, cap){
+  let w=img.naturalWidth, h=img.naturalHeight; const s=Math.min(1,max/Math.max(w,h)); w=Math.round(w*s); h=Math.round(h*s);
+  const c=document.createElement('canvas'); c.width=w; c.height=h; c.getContext('2d').drawImage(img,0,0,w,h);
+  let out=c.toDataURL('image/jpeg',q); while(out.length>cap && q>0.4){ q-=0.08; out=c.toDataURL('image/jpeg',q); } return out;
+}
+let picked = null;
+$('fFile').addEventListener('change', async e => {
+  const f = e.target.files && e.target.files[0]; picked=null; $('preview').style.display='none'; if (!f) return;
+  try { const img = await loadImg(f); picked = { thumb: shrink(img, 480, 0.72, 60000), full: shrink(img, 1000, 0.8, 350000) }; $('previewImg').src = picked.thumb; $('preview').style.display='block'; $('upStatus').textContent=''; }
+  catch(err){ $('upStatus').textContent = err.message; }
+});
+
+$('btnUpload').addEventListener('click', async () => {
+  const name = $('fName').value.trim(), site = $('fSite').value, cap = $('fCap').value.trim();
+  if (!db || !uid) return $('upStatus').textContent = 'Still connecting. Try again in a moment.';
+  if (settings.closed[day]) return $('upStatus').textContent = 'Uploads are closed for this day.';
+  if (!name) return $('upStatus').textContent = 'Add your name so people know who to vote for.';
+  if (!picked) return $('upStatus').textContent = 'Pick a photo first.';
+  const btn = $('btnUpload'); btn.disabled = true; $('upStatus').innerHTML = '<span class="spin"></span> Posting…';
+  try {
+    const id = day + '-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,7);
+    await setDoc(doc(db,'images',id), { data: picked.full });
+    await setDoc(doc(db,'photos',id), { day, name, site, caption: cap, uid, at: Date.now(), thumb: picked.thumb });
+    fullCache.set(id, picked.full);
+    picked=null; $('fFile').value=''; $('fCap').value=''; $('preview').style.display='none';
+    $('upStatus').textContent = 'Posted. Nice work.';
+    try { localStorage.setItem('cos-name', name); localStorage.setItem('cos-site', site); } catch(e){}
+  } catch(err) { console.error(err); $('upStatus').textContent = 'Upload failed (' + (err.code || 'error') + '). Try a smaller photo.'; }
+  btn.disabled = false;
+});
+
+function subscribeDay(){
+  if (unsubPhotos) { unsubPhotos(); unsubPhotos=null; }
+  photos=[]; render(); if (!db) return;
+  unsubPhotos = onSnapshot(query(collection(db,'photos'), where('day','==',day)), snap => {
+    photos = snap.docs.map(d => Object.assign({id:d.id}, d.data())); render();
+  }, e => { $('notice').textContent = 'Live updates stopped (' + e.code + '). Reload the page.'; });
+}
+function subscribeShared(){
+  onSnapshot(collection(db,'votes'), snap => {
+    const counts = {};
+    snap.docs.forEach(d => { const v=d.data(); DAYS.forEach(x => { const pid=v[x.k]; if (pid) counts[pid]=(counts[pid]||0)+1; }); if (d.id===uid) myVoteDoc=v; });
+    votes = counts; render();
+  });
+  onSnapshot(doc(db,'settings','main'), s => { settings = s.exists() ? Object.assign({locked:{},closed:{}}, s.data()) : {locked:{},closed:{}}; render(); });
+}
+
+async function vote(photoId){
+  if (!db || !uid) return toast('Still connecting.');
+  if (settings.locked[day]) return toast('Voting is locked for this day.');
+  const cur = Object.assign({}, myVoteDoc || {}); const same = cur[day]===photoId;
+  if (same) delete cur[day]; else cur[day]=photoId; cur.at = Date.now();
+  try { await setDoc(doc(db,'votes',uid), cur); myVoteDoc=cur; render(); toast(same ? 'Vote removed.' : 'Vote counted.'); }
+  catch(err){ toast('Vote failed. Try again.'); }
+}
+async function removePhoto(p){
+  if (!confirm('Remove "' + p.name + '"\'s photo? This cannot be undone.')) return;
+  try { await deleteDoc(doc(db,'photos',p.id)); await deleteDoc(doc(db,'images',p.id)); fullCache.delete(p.id); toast('Photo removed.'); }
+  catch(err){ toast('Could not remove (' + (err.code||'error') + ').'); }
+}
+async function saveSetting(key, val){
+  const next = { locked: Object.assign({}, settings.locked), closed: Object.assign({}, settings.closed) }; next[key][day]=val;
+  try { await setDoc(doc(db,'settings','main'), next); } catch(err){ toast('Could not save setting (admin only).'); }
+}
+$('lockDay').addEventListener('change', e => saveSetting('locked', e.target.checked));
+$('lockUpload').addEventListener('change', e => saveSetting('closed', e.target.checked));
+
+async function loadFull(id, imgEl){
+  const c = fullCache.get(id); if (c) { if (c!=='missing') imgEl.src=c; return; }
+  if (pending.has(id)) { const d = await pending.get(id); if (d!=='missing') imgEl.src=d; return; }
+  const pr = getDoc(doc(db,'images',id)).then(s => (s.exists() && s.data().data) || 'missing').catch(()=>'missing');
+  pending.set(id, pr); const data = await pr; pending.delete(id); fullCache.set(id, data);
+  if (data!=='missing') imgEl.src=data;
+}
+
+function sorted(){ return photos.slice().sort((a,b) => ((votes[b.id]||0)-(votes[a.id]||0)) || ((b.at||0)-(a.at||0))); }
+function render(){
+  const list = sorted(); const grid=$('grid'); grid.innerHTML='';
+  $('empty').style.display = list.length ? 'none' : 'block';
+  const locked = !!settings.locked[day], closed = !!settings.closed[day];
+  $('notice').textContent = locked ? 'Voting is locked for this day. Results are final.' : (closed ? 'Uploads are closed for this day.' : '');
+  $('btnUpload').disabled = closed;
+  const myPick = myVoteDoc ? myVoteDoc[day] : null;
+  list.forEach((p,i) => {
+    const card=document.createElement('div'); card.className='card';
+    const ph=document.createElement('button'); ph.className='ph'; ph.setAttribute('aria-label','Open photo by '+esc(p.name));
+    const img=document.createElement('img'); img.alt=esc(p.name)+(p.caption?' — '+esc(p.caption):''); img.src=p.thumb||''; img.loading='lazy'; ph.appendChild(img);
+    if (i<3 && (votes[p.id]||0)>0){ const r=document.createElement('span'); r.className='rank'; r.textContent=['1st','2nd','3rd'][i]; ph.appendChild(r); }
+    ph.addEventListener('click', ()=>openLb(p)); card.appendChild(ph);
+    const meta=document.createElement('div'); meta.className='meta';
+    const nm=document.createElement('div'); nm.className='name'; nm.textContent=esc(p.name); meta.appendChild(nm);
+    const st=document.createElement('div'); st.className='site'; st.textContent=esc(p.site); meta.appendChild(st);
+    if (p.caption){ const cp=document.createElement('div'); cp.className='cap'; cp.textContent=esc(p.caption); meta.appendChild(cp); }
+    card.appendChild(meta);
+    const acts=document.createElement('div'); acts.className='acts';
+    const vb=document.createElement('button'); vb.className='vote'+(myPick===p.id?' mine':''); vb.textContent=(myPick===p.id?'Your vote · ':'Vote · ')+(votes[p.id]||0); vb.disabled=locked; vb.addEventListener('click',()=>vote(p.id)); acts.appendChild(vb);
+    if (isAdmin || (uid && p.uid===uid)){ const del=document.createElement('button'); del.className='del'; del.textContent=isAdmin?'Remove':'Delete mine'; del.addEventListener('click',()=>removePhoto(p)); acts.appendChild(del); }
+    card.appendChild(acts); grid.appendChild(card);
+  });
+  const L=$('leaders'); L.innerHTML='';
+  const top=list.filter(p=>(votes[p.id]||0)>0).slice(0,3);
+  if (top.length) top.forEach((p,i)=>{ const c=document.createElement('span'); c.className='chip'; c.innerHTML='<b>'+['1st','2nd','3rd'][i]+'</b> '; c.appendChild(document.createTextNode(esc(p.name)+' ('+votes[p.id]+')')); L.appendChild(c); });
+  else { const c=document.createElement('span'); c.className='chip'; c.textContent = list.length ? 'No votes yet. Cast the first one.' : 'Leaderboard'; L.appendChild(c); }
+  const S=$('sites'); S.innerHTML=''; const bySite={}; list.forEach(p=>{ bySite[p.site]=(bySite[p.site]||0)+(votes[p.id]||0); });
+  Object.entries(bySite).sort((a,b)=>b[1]-a[1]).forEach(([s,n])=>{ const c=document.createElement('span'); c.className='chip'; c.textContent=s+': '+n; S.appendChild(c); });
+  $('lockDay').checked=locked; $('lockUpload').checked=closed;
+  $('admin').classList.toggle('on', isAdmin);
+  if (lbPhoto) syncLb();
+}
+
+let lbPhoto=null;
+function openLb(p){ lbPhoto=p; $('lb').classList.add('on'); syncLb(); $('lbImg').src=p.thumb||''; loadFull(p.id, $('lbImg')); }
+function syncLb(){ const p=photos.find(x=>x.id===lbPhoto.id)||lbPhoto; $('lbName').textContent=esc(p.name); $('lbSite').textContent=esc(p.site); $('lbCap').textContent=esc(p.caption||''); $('lbImg').alt=esc(p.name);
+  const myPick=myVoteDoc?myVoteDoc[day]:null; const b=$('lbVote'); b.className='vote'+(myPick===p.id?' mine':''); b.textContent=(myPick===p.id?'Your vote · ':'Vote · ')+(votes[p.id]||0); b.disabled=!!settings.locked[day]; b.onclick=()=>vote(p.id); }
+$('lbClose').addEventListener('click',()=>{ $('lb').classList.remove('on'); lbPhoto=null; });
+$('lb').addEventListener('click',e=>{ if(e.target===$('lb')){ $('lb').classList.remove('on'); lbPhoto=null; } });
+
+// ---- admin sign-in ----
+$('adminLink').addEventListener('click', e => { e.preventDefault(); $('adminDlg').classList.add('on'); $('aOut').style.display = isAdmin ? '' : 'none'; });
+$('aCancel').addEventListener('click', ()=>$('adminDlg').classList.remove('on'));
+$('adminDlg').addEventListener('click', e=>{ if(e.target===$('adminDlg')) $('adminDlg').classList.remove('on'); });
+
+// ---- boot ----
+try { const n=localStorage.getItem('cos-name'); if(n) $('fName').value=n; const s=localStorage.getItem('cos-site'); if(s) $('fSite').value=s; } catch(e){}
+renderTabs(); render();
+if (firebaseConfig.apiKey === 'PASTE_ME') { $('notice').textContent = 'Setup needed: paste your Firebase config into index.html (see README).'; $('btnUpload').disabled = true; }
+else {
+  const app = initializeApp(firebaseConfig); const auth = getAuth(app); db = getFirestore(app);
+  let started = false;
+  onAuthStateChanged(auth, async u => {
+    if (!u) { uid=null; isAdmin=false; try { await signInAnonymously(auth); } catch(e){ $('notice').textContent='Could not connect (enable Anonymous sign-in in Firebase Auth).'; } return; }
+    uid = u.uid; isAdmin = !u.isAnonymous;
+    if (!started) { started = true; subscribeShared(); subscribeDay(); } else render();
+  });
+  $('aGo').addEventListener('click', async ()=>{ $('aStatus').textContent='Signing in…'; try { await signInWithEmailAndPassword(auth, $('aEmail').value.trim(), $('aPass').value); $('aStatus').textContent=''; $('adminDlg').classList.remove('on'); toast('Signed in as admin.'); } catch(err){ $('aStatus').textContent='Sign-in failed: ' + (err.code||'error'); } });
+  $('aOut').addEventListener('click', async ()=>{ await signOut(auth); $('adminDlg').classList.remove('on'); toast('Signed out.'); });
+}
+</script>
+</body>
+</html>
